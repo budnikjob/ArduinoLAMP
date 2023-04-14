@@ -1,0 +1,68 @@
+﻿<Window x:Class="ArduinoLAMP.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ArduinoLAMP"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="370">
+    <Grid>
+        <StackPanel>
+            <Label Content="ArduinoLAMP" FontSize="48" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10" >
+                <Label.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="White"/>
+                        <GradientStop Color="#180262FF" Offset="1"/>
+                    </LinearGradientBrush>
+                </Label.Background>
+            </Label>
+            <Border BorderThickness="1" BorderBrush="Gray" Width="205" Height="40">
+                <StackPanel Margin="2 5 2 2">
+                    <RadioButton Content="Своя температура" x:Name="my_temp"></RadioButton>
+                    <RadioButton Content="Табличная температура" x:Name="table_temp"></RadioButton>
+                </StackPanel>
+            </Border>
+                <Border Width="100" Height="55" Margin="105 20 0 0 " BorderThickness="1" BorderBrush="Gray">
+                <StackPanel Margin="2 2 2 2">
+                    <Label Content="Порт: "></Label>
+                    <ComboBox x:Name="com_input" SelectionChanged="com_input_SelectionChanged"/>
+                </StackPanel>
+            </Border>
+            
+            <Border Width="100" Height="55" Margin="-105 -55 0 0 " BorderThickness="1" BorderBrush="Gray">
+                <StackPanel Margin="2 2 2 2">
+                    <Label Content="Температура: "></Label>
+                    <TextBox x:Name="temp_input"></TextBox>
+                </StackPanel>
+            </Border>
+
+            <Border Width="205" Height="60" BorderThickness="1" BorderBrush="Gray" Margin="0 20 0 0">
+                <StackPanel Margin="2 2 2 2">
+                    <Label Content="Цветовая температура:"></Label>
+                    <ComboBox x:Name="kelvin_var">
+                        <ComboBoxItem>2000</ComboBoxItem>
+                        <ComboBoxItem>3000</ComboBoxItem>
+                        <ComboBoxItem>4000</ComboBoxItem>
+                        <ComboBoxItem>5000</ComboBoxItem>
+                        <ComboBoxItem>6000</ComboBoxItem>
+                        <ComboBoxItem>7000</ComboBoxItem>
+                        <ComboBoxItem>8000</ComboBoxItem>
+                        <ComboBoxItem>9000</ComboBoxItem>
+                    </ComboBox>
+                </StackPanel>
+            </Border>
+
+
+            <Border Width="150" Height="60" BorderThickness="1" BorderBrush="Gray" Margin="0 20 0 0">
+                <StackPanel Margin=" 2 2 2 2">
+                    <Label Content="Яркость:"></Label>
+                    <Slider Maximum="255" x:Name="brightness" SmallChange="1" TickFrequency="20 " IsSnapToTickEnabled="True" TickPlacement="BottomRight"></Slider>
+                </StackPanel>
+            </Border>
+            <Button Content="Отправить данные на порт " Width="160" Height="30" Margin="0 20 0 0" Click="Button_Click1"></Button>
+            <Button Content="Выключить ленту" Width="160" Height="30" Margin="0 5 0 0" Click="Button_Click"></Button>
+            <Button Content="Радуга" Width="50" Height="30" Margin="-100 5 0 0" Click="Button_Click_Rainbow"></Button>
+            <Button Content="Точки" Width="50" Height="30" Margin="100 -30 0 0" Click="Button_Click_dot"></Button>
+        </StackPanel>
+    </Grid>
+</Window>
